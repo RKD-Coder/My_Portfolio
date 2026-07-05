@@ -1,40 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ritik</title>
-  <link rel="stylesheet" href="stayle.css">
+  <title>Ritik Deswal — Data Scientist & AI/ML Engineer</title>
+  <meta name="description"
+    content="Portfolio of Ritik Deswal — Data Scientist, AI/ML Engineer, and Full Stack Developer. Building intelligent digital solutions with Python, Machine Learning, and modern web technologies.">
+  <meta name="author" content="Ritik Deswal">
+  <meta property="og:title" content="Ritik Deswal — Portfolio">
+  <meta property="og:description" content="Data Scientist & AI/ML Engineer building intelligent digital solutions.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+  <link rel="manifest" href="images/icon/site.webmanifest">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300..800&family=Playfair+Display:wght@400..900&family=Unbounded:wght@200..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <link rel="stylesheet" href="stayle.css">
 </head>
 
 <body>
+  <!-- Loading Screen -->
   <div id="loading-screen">
     <div class="loading-content">
-      <i class="fa-solid fa-laptop-code fa-5x main-icon hidden"></i>
-
-      <h1 id="loading-text" class="hidden">MY PROFILE</h1>
-
-      <div class="sub-icons">
-        <i class="fa-brands fa-github fa-2x hidden"></i>
-        <i class="fa-solid fa-code fa-2x hidden"></i>
-        <i class="fa-solid fa-user fa-2x hidden"></i>
+      <div class="loader-ring">
+        <div class="loader-ring-inner"></div>
       </div>
-
-      <h2 id="designer-text" class="hidden">Designed by Ritik Deswal</h2>
+      <h1 id="loading-text" class="hidden">RITIK DESWAL</h1>
+      <div class="sub-icons">
+        <i class="fa-solid fa-brain fa-2x hidden"></i>
+        <i class="fa-solid fa-code fa-2x hidden"></i>
+        <i class="fa-solid fa-chart-line fa-2x hidden"></i>
+      </div>
+      <h2 id="designer-text" class="hidden">Data Scientist & AI/ML Engineer</h2>
     </div>
   </div>
+
+  <!-- 3D Background Container -->
+  <div id="three-bg"></div>
+
+  <!-- Header -->
   <header class="header-list">
-    <div class="div-list ">
+    <div class="div-list">
       <button class="mobile-menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -42,11 +64,11 @@
       </button>
       <ul class="ul-list">
         <li class="active">
-          <i class="fa-regular fa-house"></i>
+          <i class="fa-solid fa-house"></i>
           <a href="#home">Home</a>
         </li>
         <li>
-          <i class="fa-regular fa-address-card"></i>
+          <i class="fa-solid fa-user"></i>
           <a href="#about">About</a>
         </li>
         <li>
@@ -54,41 +76,55 @@
           <a href="#skills">Skills</a>
         </li>
         <li>
-          <i class="fa-regular fa-folder-open"></i>
+          <i class="fa-solid fa-briefcase"></i>
+          <a href="#experience">Experience</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-folder-open"></i>
           <a href="#project">Projects</a>
         </li>
         <li>
-          <i class="fa-solid fa-code"></i>
-          <a href="#services">services</a>
+          <i class="fa-solid fa-layer-group"></i>
+          <a href="#services">Services</a>
         </li>
         <li>
-          <i class="fa-regular fa-envelope"></i>
+          <i class="fa-solid fa-envelope"></i>
           <a href="#contact">Contact</a>
         </li>
       </ul>
+      <!-- Theme Toggle -->
+      <div class="theme-toggle" id="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark/light theme">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+        <div class="toggle-ball"></div>
+      </div>
     </div>
   </header>
-  <!-- home -->
+
+  <!-- ===== HOME ===== -->
   <section class="home" id="home">
     <p class="home-p">
-      <span class="home-s">. </span>Available for freelance work
+      <span class="home-s">● </span>Available for freelance work
     </p>
     <div class="home-container">
       <div class="home-section">
         <div class="info-home">
-          <h1>Hi, I'm Ritik</h1>
-          <h3>Data Analyst</h3>
+          <h1>Hi, I'm <span class="gradient-text">Ritik</span></h1>
+
+          <!-- Typing Effect -->
+          <h3 class="typing-container"><span class="typing-text"></span><span class="cursor">|</span></h3>
+
           <div class="info-p">
-            <p>I'm a student and aspiring Data Scientist passionate about building digital solutions.</p>
-            <p>I've developed an E-book platform and a PDF utility suite.</p>
-            <p>Currently, I'm deepening my skills by working on an exciting solo project.</p>
+            <p>Computer science student focused on software development and data science.</p>
+            <p>Experienced with Python, SQL, and machine learning across 3+ core projects.</p>
+            <p>Solves technical problems using clean and maintainable code.</p>
           </div>
           <div class="info-p2">
-            <p><i class="fa-solid fa-location-dot"></i> Based in India</p>
+            <p><i class="fa-solid fa-location-dot"></i> Gohana, Haryana, India</p>
             <p><i class="fa-solid fa-briefcase"></i> Available Now</p>
           </div>
           <div class="btnn">
-            <button class="btn-home1" onclick="window.location.href='mailto:ritikdeswal14@gmail.com'"><i
+            <button class="btn-home1" onclick="window.location.href='mailto:ritikdeswal3@gmail.com'"><i
                 class="fa-solid fa-arrow-right"></i> Hire Me</button>
             <a href="Resume/Ritik_resume.pdf" download="Ritik_Deswal_CV.pdf" style="text-decoration: none;">
               <button class="btn-home2"><i class="fa-solid fa-download"></i> Download CV</button>
@@ -100,345 +136,511 @@
           <div class="follow">
             <p class="followw">Follow me:</p>
             <ul>
-              <li><a href="https://github.com/RKD-Coder"><i class="fa-brands fa-github"></i></a></li>
-            <!--  <li><a href="#"><i class="fa-brands fa-discord"></i></a></li> -->
-              <li><a href="https://www.linkedin.com/in/ritik-deswal-3a3423373/"><i
+              <li><a href="https://github.com/RKD-Coder" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/ritik-deswal-3a3423373/" target="_blank"><i
                     class="fa-brands fa-linkedin"></i></a></li>
-              <li><a href="https://www.instagram.com/deshwal._.93/"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="https://www.instagram.com/deshwal._.93/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
       </div>
-      <img src="images/img2.jpg" alt="">
+      <div class="home-img-wrapper">
+        <img src="images/img2.jpg" alt="Ritik Deswal">
+        <div class="img-glow"></div>
+      </div>
     </div>
   </section>
-  <!-- fine home  -->
+
+  <!-- ===== ABOUT ===== -->
   <section class="about" id="about">
-    <p id="about">ABOUT ME</p>
-    <div class="title">
-      <h1>Building Meaningful</h1>
-      <h1>Digital Experiences</h1>
+    <p class="section-label reveal-el">ABOUT ME</p>
+    <div class="title reveal-el">
+      <h1>Building Intelligent</h1>
+      <h1>Digital <span class="gradient-text">Experiences</span></h1>
     </div>
     <div class="hrrr">
       <hr>
     </div>
-    <div class="about-container">
+    <div class="about-container reveal-el">
       <div class="info-about">
         <div class="about-info">
           <p>
-            I'm a college student and aspiring Data Scientist passionate about creating practical digital solutions.
-            <br>My journey started with web development and has evolved into exploring data science and machine
-            learning.
-            <br>I enjoy building projects that solve real-world problems and make technology more accessible.
-
+            Computer science student focused on software development and data science. Experienced with Python, SQL, and
+            machine learning across 3+ core projects.
           </p>
           <p>
-            I've developed an E-book platform for digital reading experiences and a comprehensive PDF utility suite
-            <br>with tools for conversion, compression, and merging. Currently, I'm working on a new solo project
-            <br>to deepen my skills in data science and full-stack development.
+            Solves technical problems using clean and maintainable code. I learn and apply 1-2 new tools weekly to
+            deliver results and support team goals.
+          </p>
+          <p>
+            Recently completed a Software Development Internship at UFLEX Limited, building a Django eBook platform, and
+            currently developing RKDCoder—a browser-based AI code editor linking Gemini, OpenRouter, and Ollama.
           </p>
         </div>
         <h2>What Drives Me</h2>
         <div class="card">
-          <div class="c1">
+          <div class="c1 glass-card">
             <h3><i class="fa-solid fa-code"></i> Languages</h3>
-            <p>HTML, CSS, JavaScript, Python, Java, C</p>
+            <p>Python, JavaScript, HTML5, CSS3, SQL</p>
           </div>
-          <div class="c1">
+          <div class="c1 glass-card">
             <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
-            <p>College Student - Data Science</p>
+            <p>BCA — Kurukshetra University (2023–2026)</p>
           </div>
-          <div class="c1">
-            <h3><i class="fa-solid fa-folder-open"></i> Projects</h3>
-            <p>E-book Platform, PDF Tools Suite & More</p>
+          <div class="c1 glass-card">
+            <h3><i class="fa-solid fa-rocket"></i> Focus</h3>
+            <p>Data Science, Agentic AI & ML Engineering</p>
           </div>
         </div>
       </div>
-      <img src="images/img.jpg" alt="">
+      <div class="about-img-wrapper">
+        <img src="images/img.jpg" alt="Ritik Deswal">
+      </div>
     </div>
   </section>
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <p>SKILLS</p>
-    <h1>Skills & Expertise</h1>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="skills-section">
+    <p class="section-label reveal-el">SKILLS</p>
+    <h1 class="reveal-el">Skills & <span class="gradient-text">Expertise</span></h1>
     <hr>
     <div class="container">
       <div class="skills-content">
         <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Frontend Development</h3>
+
+          <div class="skill-category glass-card reveal-el">
+            <h3><i class="fa-solid fa-palette"></i> Frontend Development</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <i class="fab fa-html5"></i>
+                <i class="fa-brands fa-html5"></i>
                 <span>HTML5</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 95%"></div>
+                  <div class="skill-fill" data-width="95"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <i class="fab fa-css3-alt"></i>
+                <i class="fa-brands fa-css3-alt"></i>
                 <span>CSS3</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 90%"></div>
+                  <div class="skill-fill" data-width="90"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <i class="fab fa-js-square"></i>
+                <i class="fa-brands fa-js-square"></i>
                 <span>JavaScript</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 85%"></div>
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-brands fa-react"></i>
+                <span>React</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="70"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h3>Backend Development</h3>
+
+          <div class="skill-category glass-card reveal-el">
+            <h3><i class="fa-solid fa-brain"></i> Data Science & ML</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <i class="fab fa-node-js"></i>
-                <span>Node.js</span>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 85%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-python"></i>
+                <i class="fa-brands fa-python"></i>
                 <span>Python</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 80%"></div>
+                  <div class="skill-fill" data-width="90"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <i class="fas fa-server"></i>
-                <span>Express.js</span>
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Pandas / NumPy</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 80%"></div>
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-robot"></i>
+                <span>Scikit-learn</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Matplotlib / Seaborn</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="85"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h3>Database Management</h3>
+
+          <div class="skill-category glass-card reveal-el">
+            <h3><i class="fa-solid fa-database"></i> Databases</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <i class="fas fa-database"></i>
-                <span>MongoDB</span>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 75%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-database"></i>
+                <i class="fa-solid fa-database"></i>
                 <span>MySQL</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 80%"></div>
+                  <div class="skill-fill" data-width="85"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <i class="fas fa-database"></i>
+                <i class="fa-solid fa-database"></i>
+                <span>MongoDB</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-database"></i>
                 <span>PostgreSQL</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 70%"></div>
+                  <div class="skill-fill" data-width="70"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-database"></i>
+                <span>SQLite</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h3>DevOps & Tools</h3>
+
+          <div class="skill-category glass-card reveal-el">
+            <h3><i class="fa-solid fa-terminal"></i> DevOps & Tools</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <i class="fab fa-git-alt"></i>
-                <span>Git</span>
+                <i class="fa-brands fa-git-alt"></i>
+                <span>Git / GitHub</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 90%"></div>
+                  <div class="skill-fill" data-width="90"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <i class="fab fa-docker"></i>
-                <span>Docker</span>
-                <div class="skill-bar">
-                  <div class="skill-fill" style="width: 70%"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-code"></i>
+                <i class="fa-solid fa-code"></i>
                 <span>VS Code</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 95%"></div>
+                  <div class="skill-fill" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-flask"></i>
+                <span>Jupyter / Colab</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-brands fa-linux"></i>
+                <span>Linux CLI</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="75"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h3>data visualization</h3>
+
+          <div class="skill-category glass-card reveal-el skill-highlight">
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Agentic AI</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <i class="fas fa-chart-simple"></i>
-                <span>Power BI</span>
+                <i class="fa-solid fa-link"></i>
+                <span>LangChain</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 85%"></div>
+                  <div class="skill-fill" data-width="75"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <i class="fas fa-chart-line"></i>
-                <span>Tableau</span>
+                <i class="fa-solid fa-robot"></i>
+                <span>AI Agents</span>
                 <div class="skill-bar">
-                  <div class="skill-fill" style="width: 75%"></div>
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Multi-LLM Orchestration</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="70"></div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="skill-category glass-card reveal-el skill-highlight">
+            <h3><i class="fa-solid fa-microchip"></i> Frontend AI</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <i class="fa-solid fa-wand-sparkles"></i>
+                <span>Agentic Coding</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-plug"></i>
+                <span>AI Integration</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-pen-nib"></i>
+                <span>Prompt Engineering</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-comments"></i>
+                <span>Conversational UI</span>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <section class="project" id="project">
-    <p>PROJECTS</p>
-    <h1>Featured Work</h1>
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="experience" id="experience">
+    <p class="section-label reveal-el">EXPERIENCE</p>
+    <h1 class="reveal-el">Professional <span class="gradient-text">Journey</span></h1>
     <hr>
-    <div class="info-pro">
-      <p>A showcase of my recent projects demonstrating expertise in full-stack </p>
-      <p>development, modern frameworks, and creative problem-solving.</p>
+    <div class="timeline">
+
+      <div class="timeline-item reveal-el" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-card">
+          <div class="timeline-date">Jul 2025 – Aug 2025</div>
+          <h3>Software Development Intern</h3>
+          <h4>UFLEX Limited — Noida, India</h4>
+          <p class="timeline-subtitle">Python & Data Science</p>
+          <ul>
+            <li>Built a basic eBook platform using Django, covering 4 user flows: browsing, registration, cart, and
+              checkout.</li>
+            <li>Added a secure login system with password hashing, protecting data for 100% of user accounts.</li>
+            <li>Designed a database with 3 core tables (books, users, orders) to keep data organized.</li>
+            <li>Created 5+ backend API endpoints for future mobile app support.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span>Python</span>
+            <span>Django</span>
+            <span>SQL</span>
+            <span>REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-el" data-side="right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-card">
+          <div class="timeline-date">2025 – 2026</div>
+          <h3>AI Code Editor — RKDCoder</h3>
+          <h4>Personal Project (In Development)</h4>
+          <p class="timeline-subtitle">Agentic AI Engineering</p>
+          <ul>
+            <li>Building a browser-based code editor with a custom agentic AI workflow.</li>
+            <li>Linked Gemini, OpenRouter, and Ollama for real-time code generation.</li>
+            <li>Building a patch system to safely apply AI code changes across files.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span>JavaScript</span>
+            <span>Gemini</span>
+            <span>Ollama</span>
+            <span>AI Agents</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-el" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-card">
+          <div class="timeline-date">Aug 2023 – Jul 2026</div>
+          <h3>Bachelor of Computer Applications</h3>
+          <h4>Kurukshetra University — Haryana, India</h4>
+          <p class="timeline-subtitle">Computer Science</p>
+          <ul>
+            <li>Data Structures, Algorithms, Database Management, Operating Systems</li>
+            <li>Computer Networks, Software Engineering, OOP</li>
+            <li>Machine Learning Basics</li>
+          </ul>
+          <div class="timeline-tags">
+            <span>BCA</span>
+            <span>Computer Science</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="project" id="project">
+    <p class="section-label reveal-el">PROJECTS</p>
+    <h1 class="reveal-el">Featured <span class="gradient-text">Work</span></h1>
+    <hr>
+    <div class="info-pro reveal-el">
+      <p>A showcase of my recent projects demonstrating expertise in AI/ML,</p>
+      <p>data science, and creative problem-solving.</p>
     </div>
     <div class="projects-container">
 
-      <div class="project-card">
-        <img src="images/bookland.png" alt="E-Book Platform">
-        <h3>E-Book Platform</h3>
-        <p>Modern online store with product filtering, cart, and payment system.</p>
-        <div class="skills">
-          <a href="#">HTML</a>
-          <a href="#">CSS</a>
+      <div class="project-card glass-card reveal-el">
+        <div class="project-card-img">
+          <img src="images/Godmode.png" alt="GODMODE3 - NVIDIA API">
+        </div>
+        <h3>GODMODE3 — NVIDIA API</h3>
+        <p>AI-powered application leveraging NVIDIA's API for advanced AI model integration and intelligent processing
+          workflows.</p>
+        <div class="project-tags">
+          <a href="#">Python</a>
+          <a href="#">AI</a>
+          <a href="#">NVIDIA API</a>
+        </div>
+        <div class="project-links mt-4">
+          <a href="https://godmod.qzz.io/" class="btn" target="_blank"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          <a href="https://github.com/RKD-Coder/GODMODE3-Nvdia-api" class="btn" target="_blank"><i
+              class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card glass-card reveal-el">
+        <div class="project-card-img">
+          <img src="images/Timecraft.png" alt="Time-Craft">
+        </div>
+        <h3>Time-Craft</h3>
+        <p>Smart timetable generator with a 3-phase algorithm to prevent schedule conflicts and balance subjects. Export
+          to PDF, Excel, and CSV.</p>
+        <div class="project-tags">
           <a href="#">JavaScript</a>
-        </div>
-        <div class="btns">
-          <a href="#" class="btn"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/cp.png" alt="Portfolio Website">
-        <h3>Portfolio Website</h3>
-        <p>Personal portfolio to showcase my design and coding projects.</p>
-        <div class="skills">
-          <a href="#">HTML</a>
-          <a href="#">CSS</a>
-          <a href="#">Bootstrap</a>
-        </div>
-        <div class="btns">
-          <a href="#" class="btn"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/Weather Forecast Dashboard.jpg" alt="Weather App">
-        <h3>Weather App</h3>
-        <p>Responsive app showing real-time weather data using API integration.</p>
-        <div class="skills">
-          <a href="#">HTML</a>
-          <a href="#">CSS</a>
-          <a href="#">API</a>
-        </div>
-        <div class="btns">
-          <a href="#" class="btn"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/WordPress dashboard design concept.jpg" alt="Blog Website">
-        <h3>PDF Tools Suite</h3>
-        <p>PDF Tools Suite is a collection of tools for PDF files.</p>
-        <div class="skills">
-          <a href="#">HTML</a>
           <a href="#">Tailwind</a>
-          <a href="#">JavaScript</a>
+        </div>
+        <div class="project-links mt-4">
+          <a href="https://time-craft.pages.dev/" class="btn" target="_blank"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          <a href="https://github.com/RKD-Coder/Time-Craft" class="btn" target="_blank"><i
+              class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card glass-card reveal-el">
+        <div class="project-card-img">
+          <img src="images/Rkdcoder.png" alt="RKDCoder">
+        </div>
+        <h3>RKDCoder — AI Code Editor</h3>
+        <p>Browser-based code editor with agentic AI workflow linking Gemini, OpenRouter, and Ollama for real-time code
+          generation.</p>
+        <div class="project-tags">
+          <a href="#">Agentic AI</a>
+          <a href="#">React</a>
+          <a href="#">LLMs</a>
+        </div>
+        <div class="project-links mt-4">
+          <a href="https://rkdcoder.pages.dev/" class="btn" target="_blank"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          <a href="https://github.com/RKD-Coder" class="btn" target="_blank"><i class="fa-brands fa-github"></i>
+            GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card glass-card reveal-el">
+        <div class="project-card-img">
+          <img src="images/Weather Forecast Dashboard.jpg" alt="AI Exam Assistant">
+        </div>
+        <h3>AI Exam Assistant</h3>
+        <p>AI-powered exam preparation tool designed to assist students with intelligent study recommendations and
+          practice questions.</p>
+        <div class="project-tags">
+          <a href="#">Python</a>
+          <a href="#">AI/ML</a>
+          <a href="#">NLP</a>
         </div>
         <div class="btns">
-          <a href="#" class="btn"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="https://github.com/RKD-Coder/Ai-exam-assistant" class="btn" target="_blank"><i
+              class="fa-brands fa-github"></i> GitHub</a>
         </div>
       </div>
 
     </div>
   </section>
+
+  <!-- ===== SERVICES ===== -->
   <section class="services" id="services">
-    <p>SERVICES</p>
-    <h1>Our Features & Services</h1>
+    <p class="section-label reveal-el">SERVICES</p>
+    <h1 class="reveal-el">Features & <span class="gradient-text">Services</span></h1>
     <hr>
-    <div class="services-container">
 
-      <div class="service-card">
-        <img src="images/web.svg" alt="Web Development">
-        <h3>Web Development</h3>
-        <p>Building responsive, high-performance websites using modern technologies to deliver seamless user
-          experiences.</p>
+    <!-- Service Carousel -->
+    <div class="service-carousel reveal-el">
+      <div class="service-carousel-images" id="service-carousel-images">
+        <!-- Service visual cards rendered by JS -->
       </div>
-
-      <div class="service-card">
-        <img src="images/app.svg" alt="App Development">
-        <h3>App Development</h3>
-        <p>Developing robust and scalable mobile applications for iOS and Android platforms tailored to your business
-          needs.</p>
+      <div class="service-carousel-content">
+        <div class="service-carousel-text" id="service-carousel-text">
+          <!-- Text content rendered by JS -->
+        </div>
+        <div class="service-carousel-arrows">
+          <button class="carousel-arrow" id="service-prev" aria-label="Previous service">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button class="carousel-arrow" id="service-next" aria-label="Next service">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
-
-      <div class="service-card">
-        <img src="images/ds.png" alt="Designing">
-        <h3>Designing</h3>
-        <p>Creating intuitive and visually appealing user interfaces that enhance user experience and brand identity.
-        </p>
-      </div>
-
-      <div class="service-card">
-        <img src="images/dv.png" alt="Data Visualization">
-        <h3>Data visualization</h3>
-        <p>Transforming complex data into clear, actionable insights through interactive dashboards and visual reports.
-        </p>
-      </div>
-
     </div>
   </section>
+
+  <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
-    <p>CONTACT</p>
-    <h1>Get in Touch with Us</h1>
+    <p class="section-label reveal-el">CONTACT</p>
+    <h1 class="reveal-el">Get in <span class="gradient-text">Touch</span></h1>
     <div class="contact-content">
-      <div class="contact-info slide-in-left">
+      <div class="contact-info reveal-el">
         <p>I'm always open to discuss exciting projects and new opportunities. Let's collaborate!</p>
         <div class="contact-details">
           <div class="contact-item">
             <i class="fa-solid fa-envelope"></i>
-            <span>ritikdeswal14@gmail.com</span>
+            <span>ritikdeswal3@gmail.com</span>
           </div>
           <div class="contact-item">
             <i class="fa-solid fa-phone"></i>
-            <span>+91 8930366360</span>
+            <span>+91 893-036-6360</span>
           </div>
           <div class="contact-item">
             <i class="fa-solid fa-location-dot"></i>
-            <span>India</span>
+            <span>Gohana, Haryana, India 131301</span>
           </div>
         </div>
-
         <div class="social-links">
-          <a href="https://github.com/RKD-Coder" class="social-link" target="_blank">
+          <a href="https://github.com/RKD-Coder" class="social-link" target="_blank" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/ritik-deswal-3a3423373/" class="social-link" target="_blank">
+          <a href="https://www.linkedin.com/in/ritik-deswal-3a3423373/" class="social-link" target="_blank"
+            aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin"></i>
           </a>
-          <a href="https://wa.me/918930366360" class="social-link" target="_blank">
+          <a href="https://wa.me/918930366360" class="social-link" target="_blank" aria-label="WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
-          <a href="https://www.instagram.com/deshwal._.93/" class="social-link" target="_blank">
+          <a href="https://www.instagram.com/deshwal._.93/" class="social-link" target="_blank" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
       </div>
 
-      <div class="contact-form slide-in-right">
+      <div class="contact-form reveal-el">
         <form id="contact-form">
           <input type="hidden" name="access_key" id="web3forms-key" value="">
           <div class="form-group">
@@ -450,7 +652,7 @@
           <div class="form-group">
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
           </div>
-          <!-- Honeypot field to trap bots -->
+          <!-- Honeypot -->
           <div class="form-group" style="display: none;">
             <input type="text" name="botcheck" tabindex="-1" autocomplete="off">
           </div>
@@ -459,27 +661,29 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-container">
-      <h2 class="footer-logo">Ritik</h2>
+      <h2 class="footer-logo">Ritik <span class="gradient-text">Deswal</span></h2>
       <ul class="footer-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#project">Projects</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="footer-social">
-        <a href="https://github.com/RKDHACKER" target="_blank" aria-label="GitHub"><i
+        <a href="https://github.com/RKD-Coder" target="_blank" aria-label="GitHub"><i
             class="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/ritik-deswal-3a3423373/" target="_blank" aria-label="LinkedIn"><i
             class="fa-brands fa-linkedin"></i></a>
         <a href="https://wa.me/918930366360" target="_blank" aria-label="WhatsApp"><i
             class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/deshwal._.93/">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
+        <a href="https://www.instagram.com/deshwal._.93/" target="_blank" aria-label="Instagram"><i
+            class="fa-brands fa-instagram"></i></a>
       </div>
       <p class="footer-copy">&copy; 2025 Ritik Deswal. All Rights Reserved.</p>
     </div>
