@@ -1709,6 +1709,10 @@ hr {
   }
   .home-container .home-section { order: 1; }
   .home-container .home-img-wrapper { order: 2; }
+  .about-img-wrapper {
+    align-self: center;
+    width: 100%;
+  }
   .home-img-wrapper img, .about-img-wrapper img {
     width: 100%;
     max-width: 400px;
@@ -1772,6 +1776,8 @@ hr {
 
   .ul-list li.active {
     border-radius: 8px;
+    transform: translateX(10px);
+    width: calc(100% - 20px);
   }
 
   .theme-toggle {
