@@ -563,19 +563,28 @@ if (contactForm) {
 
     try {
       const formData = new FormData(this);
-      const object = Object.fromEntries(formData);
-      object.access_key = web3Key;
-      delete object.botcheck;
+      formData.set('access_key', web3Key);
 
-      const json = JSON.stringify(object);
+      // Delete botcheck honeypot field from submitted data if empty
+      if (formData.has('botcheck')) {
+        const botVal = formData.get('botcheck');
+        if (botVal && botVal !== 'off' && botVal !== 'false') {
+          console.warn('Bot detected by honeypot field.');
+          if (btn) {
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+          }
+          return;
+        }
+        formData.delete('botcheck');
+      }
+
+      const userEmail = formData.get('email') || 'your email';
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: json
+        body: formData
       });
 
       const data = await response.json();
@@ -587,7 +596,6 @@ if (contactForm) {
           btn.style.opacity = '1';
         }
 
-        const userEmail = object.email || 'your email';
         showSuccessModal(userEmail);
 
         contactForm.reset();
@@ -602,7 +610,7 @@ if (contactForm) {
         }, 4000);
       } else {
         console.error('Web3Forms response error:', data);
-        throw new Error(data.message || 'Failed to send message');
+        throw new Error(data.message || 'Server rejected submission');
       }
     } catch (error) {
       console.error('Contact form submission error:', error);
