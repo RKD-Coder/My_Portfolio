@@ -529,76 +529,144 @@ document.querySelectorAll('.project-card, .skill-category').forEach(card => {
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   const keyField = document.getElementById('web3forms-key');
+  const web3Key = '8ea248ab-fdf5-477e-9a8b-5196b827adaf';
   if (keyField) {
-    keyField.value = atob('OGVhMjQ4YWItZmRmNS00NzdlLTlhOGItNTE5NmI4MjdhZGFm');
+    keyField.value = web3Key;
   }
 
   contactForm.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const btn = contactForm.querySelector('.btn-send');
-    const originalBtnText = btn.innerText;
+    const statusDiv = document.getElementById('form-status');
+    const originalBtnText = btn ? btn.innerText : 'Send Message';
 
-    // Honeypot check
+    // Reset status box
+    if (statusDiv) {
+      statusDiv.className = 'form-status';
+      statusDiv.innerText = '';
+      statusDiv.style.display = 'none';
+    }
+
+    // Honeypot check (ensure checkbox wasn't checked by a bot)
     const honeypot = this.querySelector('input[name="botcheck"]');
-    if (honeypot && honeypot.value) return;
-
-    // Rate limiting
-    const lastSent = localStorage.getItem('lastEmailSent');
-    const now = Date.now();
-    const COOLDOWN = 5 * 60 * 1000;
-
-    if (lastSent && (now - lastSent < COOLDOWN)) {
-      const waitTime = Math.ceil((COOLDOWN - (now - lastSent)) / 60000);
-      alert(`⏱️ Please wait ${waitTime} minute(s) before sending another message.`);
+    if (honeypot && honeypot.checked) {
+      console.warn('Bot detected by honeypot field.');
       return;
     }
 
-    btn.innerText = 'Sending...';
-    btn.disabled = true;
-    btn.style.opacity = '0.6';
+    if (btn) {
+      btn.innerText = 'Sending...';
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+    }
 
     try {
+      const formData = new FormData(this);
+      const object = Object.fromEntries(formData);
+      object.access_key = web3Key;
+      delete object.botcheck;
+
+      const json = JSON.stringify(object);
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: new FormData(this)
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
       });
 
       const data = await response.json();
 
       if (data.success) {
-        btn.innerText = '✓ Sent!';
-        btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        btn.style.opacity = '1';
+        if (btn) {
+          btn.innerText = 'Sent';
+          btn.style.background = '#10b981';
+          btn.style.opacity = '1';
+        }
 
-        const userEmail = this.querySelector('input[name="email"]').value;
-        alert(`✅ Message sent successfully!\n\nWe received your message and will get back to you at ${userEmail} soon.`);
+        const userEmail = object.email || 'your email';
+        showSuccessModal(userEmail);
 
         contactForm.reset();
-        localStorage.setItem('lastEmailSent', Date.now());
 
         setTimeout(() => {
+          if (btn) {
+            btn.innerText = originalBtnText;
+            btn.style.background = '';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+          }
+        }, 4000);
+      } else {
+        console.error('Web3Forms response error:', data);
+        throw new Error(data.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      if (btn) {
+        btn.innerText = 'Failed';
+        btn.style.background = '#ef4444';
+        btn.style.opacity = '1';
+      }
+
+      const errorMsg = `Unable to send message: ${error.message || 'Transmission error.'} Please try again or email directly: ritikdeswal3@gmail.com`;
+
+      if (statusDiv) {
+        statusDiv.className = 'form-status error';
+        statusDiv.innerText = errorMsg;
+      } else {
+        alert(errorMsg);
+      }
+
+      setTimeout(() => {
+        if (btn) {
           btn.innerText = originalBtnText;
           btn.style.background = '';
           btn.disabled = false;
           btn.style.opacity = '1';
-        }, 3000);
-      } else {
-        throw new Error('Failed to send');
-      }
-    } catch (error) {
-      btn.innerText = '✗ Failed';
-      btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-      btn.style.opacity = '1';
-
-      alert(`❌ Failed to send message.\n\nPlease try again later or contact us directly at ritikdeswal3@gmail.com`);
-
-      setTimeout(() => {
-        btn.innerText = originalBtnText;
-        btn.style.background = '';
-        btn.disabled = false;
-        btn.style.opacity = '1';
-      }, 3000);
+        }
+      }, 4000);
     }
   });
 }
+
+// ===== SUCCESS POPUP MODAL =====
+const successModal = document.getElementById('success-modal');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+const modalOkBtn = document.getElementById('modal-ok-btn');
+const modalUserEmail = document.getElementById('modal-user-email');
+
+function showSuccessModal(email) {
+  if (modalUserEmail && email) {
+    modalUserEmail.innerText = email;
+  }
+  if (successModal) {
+    successModal.classList.add('active');
+    successModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function hideSuccessModal() {
+  if (successModal) {
+    successModal.classList.remove('active');
+    successModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+}
+
+if (modalCloseBtn) modalCloseBtn.addEventListener('click', hideSuccessModal);
+if (modalOkBtn) modalOkBtn.addEventListener('click', hideSuccessModal);
+if (successModal) {
+  successModal.addEventListener('click', (e) => {
+    if (e.target === successModal) hideSuccessModal();
+  });
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && successModal && successModal.classList.contains('active')) {
+    hideSuccessModal();
+  }
+});
