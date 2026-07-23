@@ -584,10 +584,23 @@ if (contactForm) {
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*'
+        },
         body: formData
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data = {};
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        if (response.ok && (text.includes('Form submitted successfully') || text.includes('Form Submitted Successfully'))) {
+          data = { success: true };
+        } else {
+          data = { success: false, message: 'Server returned unexpected format. Try again.' };
+        }
+      }
 
       if (data.success) {
         if (btn) {
