@@ -644,16 +644,16 @@
         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" id="web3forms-key" value="8ea248ab-fdf5-477e-9a8b-5196b827adaf">
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required name="name">
+            <input type="text" placeholder="Your Name" required name="name" autocomplete="name">
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Your Email" required name="email">
+            <input type="email" placeholder="Your Email" required name="email" autocomplete="email">
           </div>
           <div class="form-group">
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <textarea name="message" placeholder="Your Message" rows="5" required autocomplete="off"></textarea>
           </div>
           <!-- Honeypot -->
-          <input type="checkbox" name="botcheck" style="display: none;">
+          <input type="checkbox" name="botcheck" style="display: none;" autocomplete="off">
           <button type="submit" class="btn-send">Send Message</button>
           <div id="form-status" class="form-status"></div>
         </form>
