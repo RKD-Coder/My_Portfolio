@@ -670,7 +670,7 @@ function showSuccessModal(email) {
   }
   if (successModal) {
     successModal.classList.add('active');
-    successModal.setAttribute('aria-hidden', 'false');
+    successModal.removeAttribute('aria-hidden');
     document.body.style.overflow = 'hidden';
   }
 }
