@@ -582,7 +582,11 @@ if (contactForm) {
 
       const userEmail = formData.get('email') || 'your email';
 
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Use Cloudflare Pages Function proxy in production to bypass Web3Forms .pages.dev TLD block
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const endpoint = isLocal ? 'https://api.web3forms.com/submit' : '/api/submit';
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*'
